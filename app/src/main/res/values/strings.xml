@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">TryingWhatsapp</string>
+    <string name="EmailTxt">Email</string>
+    <string name="PasswordTxt">Password</string>
+    <string name="NameTxt">Name</string>
+    <string name="AlreadyExist">Already Have Account</string>
+    <string name="GmailTxt">Gmail</string>
+    <string name="FacebookTxt">Facebook</string>
+    <string name="SignUpBtn">Sign Up</string>
+    <string name="WithPhone">Sign Up With Phone</string>
+    <string name="NotExist">Do not have Account</string>
+    <string name="SignIn">Sign In</string>
+    <string name="WithPhoneSignIn">SignIn with Phone</string>
+</resources>

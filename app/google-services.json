@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "989939433395",
+    "project_id": "tryingwhatsapp",
+    "storage_bucket": "tryingwhatsapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:989939433395:android:3d33f4b90d4705f6f415c6",
+        "android_client_info": {
+          "package_name": "com.example.tryingwhatsapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "989939433395-argkfefp614bj7lqctkjhtkca0d0lint.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBC3l0C7n2wDpTR-h62wPmWgkGRM-9EZac"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "989939433395-argkfefp614bj7lqctkjhtkca0d0lint.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
