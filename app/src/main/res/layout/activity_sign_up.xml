@@ -70,11 +70,11 @@
             android:background="#71BF72"
             android:ems="10"
             android:hint="@string/PasswordTxt"
-            android:inputType="textPersonName"
+            android:inputType="textPassword"
             android:paddingStart="10dp"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
-            android:textSize="24sp" />
+            android:textSize="24dp" />
 
         <TextView
             android:id="@+id/alreadyAccount"
