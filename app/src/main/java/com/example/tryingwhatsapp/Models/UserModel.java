@@ -28,6 +28,10 @@ public class UserModel {
         return profilpic;
     }
 
+    public String getUserId() {
+        return userId;
+    }
+
     public void setProfilpic(String profilpic) {
         this.profilpic = profilpic;
     }
@@ -54,10 +58,6 @@ public class UserModel {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public String getUserId() {
-        return userId;
     }
 
     public void setUserId(String userId) {

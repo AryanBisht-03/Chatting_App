@@ -7,6 +7,7 @@ import androidx.viewbinding.ViewBinding;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
@@ -57,7 +58,7 @@ public class SignInActivity extends AppCompatActivity {
                 String emailTxt = binding.EmailTextSignIn.getText().toString();
                 String passwordTxt = binding.PasswordTextSignIn.getText().toString();
 
-                if(emailTxt!=""||passwordTxt=="")
+                if(TextUtils.isEmpty(emailTxt)||TextUtils.isEmpty(passwordTxt))
                 {
                     Toast.makeText(SignInActivity.this, "Some Fields are Empty", Toast.LENGTH_SHORT).show();
                 }

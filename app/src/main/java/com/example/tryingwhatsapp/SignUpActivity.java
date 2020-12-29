@@ -50,7 +50,7 @@ public class SignUpActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         dataBase = FirebaseDatabase.getInstance();
         progress = new ProgressDialog(SignUpActivity.this);
-
+        reference = dataBase.getReference();
 
 
         progress.setTitle("Signing Up");
@@ -71,7 +71,7 @@ public class SignUpActivity extends AppCompatActivity {
                 }
                 else
                 {
-//                    Log.d("Aryan","Inside else...");
+                    Log.d("Aryan","Inside else...");
                     progress.show();
                     auth.createUserWithEmailAndPassword(emailTxt,passwordTxt).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
@@ -79,14 +79,23 @@ public class SignUpActivity extends AppCompatActivity {
                             if(task.isSuccessful())
                             {
                                 UserModel user = new UserModel(emailTxt,passwordTxt,userNameTxt);
-
+                                Log.d("Aryan","Successfull signUp");
                                 String id = task.getResult().getUser().getUid();
+
+                                Log.d("Aryan","trying to sign up");
+
                                 reference.child("Users").child(id).setValue(user);
 
+                                Log.d("Aryan","User in dataBase");
                                 Toast.makeText(SignUpActivity.this, "FireBase Created User", Toast.LENGTH_SHORT).show();
+
+                                Log.d("Aryan","New Activity is started");
+                                startActivity(new Intent(SignUpActivity.this,MainActivity.class));
+                                Log.d("Aryan","In new Activity");
                             }
                             else
                             {
+                                Log.d("Aryan","Not done ");
                                 Toast.makeText(SignUpActivity.this, "Something went Wrong"+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                             }
                             progress.dismiss();
