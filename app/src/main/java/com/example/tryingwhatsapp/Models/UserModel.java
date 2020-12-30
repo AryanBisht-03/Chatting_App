@@ -1,21 +1,31 @@
 package com.example.tryingwhatsapp.Models;
 
 public class UserModel {
-     String profilpic,userName,email,password,userId,lastMessage;
+     String profilpic,userName,email,password,userId,lastMessage,status;
 
-    public UserModel(String profilpic, String userName, String email, String password, String userId, String lastMessage) {
+    public UserModel(String profilpic, String userName, String email, String password, String userId, String lastMessage,String status) {
         this.profilpic = profilpic;
         this.userName = userName;
         this.email = email;
         this.password = password;
         this.userId = userId;
         this.lastMessage = lastMessage;
+        this.status = status;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public UserModel()
     {
 
     }
+    
 
     public UserModel(String email,String password,String userName)
     {

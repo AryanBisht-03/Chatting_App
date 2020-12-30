@@ -9,9 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TryingWhatsapp">
-        <activity android:name=".ChattingDetail">
-
-        </activity>
+        <activity android:name=".SettingActivity"></activity>
+        <activity android:name=".GroupChatActivity" />
+        <activity android:name=".ChattingDetail" />
         <activity android:name=".SignInActivity" />
         <activity android:name=".SignUpActivity">
             <intent-filter>
@@ -20,9 +20,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity">
-
-        </activity>
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>

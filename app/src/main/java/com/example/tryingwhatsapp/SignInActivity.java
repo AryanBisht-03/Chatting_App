@@ -60,6 +60,17 @@ public class SignInActivity extends AppCompatActivity {
 
                 if(TextUtils.isEmpty(emailTxt)||TextUtils.isEmpty(passwordTxt))
                 {
+                    if(TextUtils.isEmpty(emailTxt))
+                    {
+                        binding.EmailTextSignIn.setError("This Field is empty");
+                        return;
+                    }
+                    if(TextUtils.isEmpty(passwordTxt))
+                    {
+                        binding.PasswordTextSignIn.setError("This Field is empty");
+                        return;
+                    }
+
                     Toast.makeText(SignInActivity.this, "Some Fields are Empty", Toast.LENGTH_SHORT).show();
                 }
                 else

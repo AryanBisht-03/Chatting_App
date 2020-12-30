@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId())
         {
             case R.id.Setting:
-                Toast.makeText(this, "Setting is clicked", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(MainActivity.this,SettingActivity.class));
                 break;
 
             case R.id.logout:
@@ -57,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
             case R.id.togetherChat:
+                startActivity(new Intent(MainActivity.this,GroupChatActivity.class));
                 break;
         }
         return super.onOptionsItemSelected(item);

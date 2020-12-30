@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.tryingwhatsapp.Adapter.ChatAdapter;
 import com.example.tryingwhatsapp.Models.MessagesModel;
@@ -57,16 +58,37 @@ public class ChattingDetail extends AppCompatActivity {
 
             }
         });
+        binding.SimpleCall.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(ChattingDetail.this, "Soon This Feature will come.So wait till then :-)", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        binding.VideoCall.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(ChattingDetail.this, "Soon This Feature will come.So wait till then :-)", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        binding.OptionChatting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(ChattingDetail.this, "Soon This Feature will come.So wait till then :-)", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         final ArrayList<MessagesModel> messagesModels = new ArrayList<>();
 
-        final ChatAdapter chatAdapter = new ChatAdapter(messagesModels,this);
+        final ChatAdapter chatAdapter = new ChatAdapter(messagesModels,this,recieveId);
         binding.RecyclerViewChatting.setAdapter(chatAdapter);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         binding.RecyclerViewChatting.setLayoutManager(layoutManager);
         final String senderRoom = senderId + recieveId;
         final String receiverRoom = recieveId + senderId;
+
 
 
         database.getReference().child("Chats").child(senderRoom).addValueEventListener(new ValueEventListener() {
@@ -77,6 +99,7 @@ public class ChattingDetail extends AppCompatActivity {
                 {
                     MessagesModel model = dataSnapshot.getValue(MessagesModel.class);
 
+                    model.setMessageid(dataSnapshot.getKey());
                     Log.d("Times",model.getTime().toString());
                     messagesModels.add(model);
 

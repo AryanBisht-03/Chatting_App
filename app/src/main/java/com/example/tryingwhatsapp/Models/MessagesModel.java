@@ -2,8 +2,16 @@ package com.example.tryingwhatsapp.Models;
 
 public class MessagesModel {
 
-    String id,message;
+    String id,message,messageid;
     Long time;
+
+    public String getMessageid() {
+        return messageid;
+    }
+
+    public void setMessageid(String messageid) {
+        this.messageid = messageid;
+    }
 
     public MessagesModel(String id, String message, Long time) {
         this.id = id;

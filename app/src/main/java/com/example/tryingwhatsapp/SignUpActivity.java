@@ -67,6 +67,21 @@ public class SignUpActivity extends AppCompatActivity {
                 if(TextUtils.isEmpty(emailTxt)||TextUtils.isEmpty(passwordTxt)||TextUtils.isEmpty(userNameTxt))
                 {
 //                    Log.d("Aryan","Inside if");
+                    if(TextUtils.isEmpty(emailTxt))
+                    {
+                        binding.EmailText.setError("This Field is empty");
+                        return;
+                    }
+                    if(TextUtils.isEmpty(passwordTxt))
+                    {
+                        binding.PasswordText.setError("This Field is empty");
+                        return;
+                    }
+                    if(TextUtils.isEmpty(userNameTxt))
+                    {
+                        binding.NameTxt.setError("This Field is empty");
+                        return;
+                    }
                     Toast.makeText(SignUpActivity.this, "Some Fields are empty", Toast.LENGTH_SHORT).show();
                 }
                 else

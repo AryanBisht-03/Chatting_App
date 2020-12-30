@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="5dp"
-    tools:context=".ChattingDetail">
+    tools:context=".GroupChatActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -20,7 +20,7 @@
             android:layout_height="match_parent">
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/profile_imageChatting"
+                android:id="@+id/profile_imageGroup"
                 android:layout_width="45dp"
                 android:layout_height="45dp"
                 android:padding="2dp"
@@ -28,31 +28,31 @@
                 app:civ_border_color="#FFF"
                 app:civ_border_width="2dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/BackBtn"
+                app:layout_constraintStart_toEndOf="@+id/BackBtnGroup"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
-                android:id="@+id/SimpleCall"
+                android:id="@+id/SimpleCallGroup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="20dp"
                 android:src="@drawable/ic_telephone"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/VideoCall"
+                app:layout_constraintEnd_toStartOf="@+id/VideoCallGroup"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
-                android:id="@+id/VideoCall"
+                android:id="@+id/VideoCallGroup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="20dp"
                 android:src="@drawable/ic_video_call"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/OptionChatting"
+                app:layout_constraintEnd_toStartOf="@+id/OptionChattingGroup"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
-                android:id="@+id/BackBtn"
+                android:id="@+id/BackBtnGroup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -61,19 +61,20 @@
                 app:srcCompat="@drawable/ic_left_arrow" />
 
             <TextView
-                android:id="@+id/userNameChatting"
+                android:id="@+id/userNameChattingGroup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
                 android:text="TextView"
                 android:textSize="15sp"
+                android:maxWidth="165dp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/profile_imageChatting"
+                app:layout_constraintStart_toEndOf="@+id/profile_imageGroup"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
-                android:id="@+id/OptionChatting"
+                android:id="@+id/OptionChattingGroup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="15dp"
@@ -86,7 +87,7 @@
     </androidx.appcompat.widget.Toolbar>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/RecyclerViewChatting"
+        android:id="@+id/RecyclerViewGroup"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/linear"
@@ -96,7 +97,7 @@
     </androidx.recyclerview.widget.RecyclerView>
 
     <LinearLayout
-        android:id="@+id/linear"
+        android:id="@+id/linearGroup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -105,7 +106,7 @@
 
 
         <EditText
-            android:id="@+id/messageBox"
+            android:id="@+id/messageBoxGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -118,7 +119,7 @@
             android:textSize="16sp" />
 
         <ImageView
-            android:id="@+id/send"
+            android:id="@+id/sendGroup"
             android:layout_width="100dp"
             android:layout_height="match_parent"
             android:layout_gravity="center"

@@ -14,4 +14,14 @@
     <string name="Hint">Buddy! Why are u not writing Something.:-)</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="UserName">I want your Name :</string>
+    <string name="hintName">Why are you not writing</string>
+    <string name="Status">Just write status :</string>
+    <string name="SaveBtn">Save it</string>
+    <string name="privacyPolicy">Privacy Policy(I am Watching you :-))</string>
+    <string name="aboutUs">Want to know about me</string>
+    <string name="inviteaFriend">Ask Friend to join you</string>
+    <string name="notification">Disturbing Elements(Notification)</string>
+    <string name="FragmentsNotused">Work on Progress</string>
+    <string name="help">Need help :-(</string>
 </resources>

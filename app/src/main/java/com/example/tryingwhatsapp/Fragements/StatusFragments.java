@@ -2,65 +2,82 @@ package com.example.tryingwhatsapp.Fragements;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.tryingwhatsapp.Adapter.StatusAdapter;
+import com.example.tryingwhatsapp.Models.StatusModel;
 import com.example.tryingwhatsapp.R;
+import com.example.tryingwhatsapp.databinding.FragmentStatusFragmentsBinding;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link StatusFragments#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.ArrayList;
+
+
 public class StatusFragments extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
     public StatusFragments() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment StatusFragments.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static StatusFragments newInstance(String param1, String param2) {
-        StatusFragments fragment = new StatusFragments();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+    FirebaseAuth auth;
+    FirebaseDatabase database;
+    FirebaseStorage storage;
+    ArrayList<StatusModel> list = new ArrayList<>();
+    FragmentStatusFragmentsBinding binding;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_status_fragments, container, false);
+        binding = FragmentStatusFragmentsBinding.inflate(inflater,container,false);
+
+        StatusAdapter adapter = new StatusAdapter(list,getContext());
+
+        binding.recyclerViewStatus.setAdapter(adapter);
+
+        database = FirebaseDatabase.getInstance();
+        storage = FirebaseStorage.getInstance();
+        auth = FirebaseAuth.getInstance();
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+        binding.recyclerViewStatus.setLayoutManager(layoutManager);
+
+        database.getReference().child("Users").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                list.clear();
+                for(DataSnapshot dataSnapshot:snapshot.getChildren())
+                {
+                    StatusModel model = dataSnapshot.getValue(StatusModel.class);
+
+                    if(!dataSnapshot.getKey().equals(auth.getUid()))
+                    {
+                        list.add(model);
+                    }
+                }
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
+        return binding.getRoot();
     }
 }
