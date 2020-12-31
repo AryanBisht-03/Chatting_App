@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 
 import com.example.tryingwhatsapp.Adapter.StatusAdapter;
 import com.example.tryingwhatsapp.Models.StatusModel;
+import com.example.tryingwhatsapp.Models.UserModel;
 import com.example.tryingwhatsapp.R;
 import com.example.tryingwhatsapp.databinding.FragmentStatusFragmentsBinding;
 import com.google.firebase.auth.FirebaseAuth;
@@ -20,6 +21,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -53,6 +55,22 @@ public class StatusFragments extends Fragment {
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         binding.recyclerViewStatus.setLayoutManager(layoutManager);
+
+        database.getReference().child("Users").child(auth.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                UserModel model = snapshot.getValue(UserModel.class);
+                binding.userStatus.setText(model.getStatus());
+
+                Picasso.get().load(model.getProfilpic()).placeholder(R.drawable.ic_man).into(binding.senderImageStatus);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
         database.getReference().child("Users").addValueEventListener(new ValueEventListener() {
             @Override

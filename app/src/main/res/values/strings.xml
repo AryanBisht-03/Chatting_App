@@ -23,5 +23,6 @@
     <string name="inviteaFriend">Ask Friend to join you</string>
     <string name="notification">Disturbing Elements(Notification)</string>
     <string name="FragmentsNotused">Work on Progress</string>
+    <string name="MyStatus">My Status</string>
     <string name="help">Need help :-(</string>
 </resources>
